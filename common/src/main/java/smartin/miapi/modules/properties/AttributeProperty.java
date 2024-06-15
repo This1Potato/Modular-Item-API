@@ -213,7 +213,7 @@ public class AttributeProperty implements ModuleProperty {
 
             toMerge.forEach((entityAttribute, entityAttributeModifier) -> {
                 if (entityAttributeModifier.slot().equals(slot)) {
-                    if (entityAttributeModifier.seperateOnItem) {
+                    if (entityAttributeModifier.separateOnItem) {
                         merged.put(entityAttribute, entityAttributeModifier.attributeModifier());
                     } else {
                         switch (entityAttributeModifier.mergeTo) {
@@ -484,7 +484,7 @@ public class AttributeProperty implements ModuleProperty {
                 if (uuid.equals(ExampleModularItem.attackSpeedUUID())) {
                     uuid = ExampleModularItem.attackSpeedUUID();
                 }
-                attributeModifiers.put(attribute, new EntityAttributeModifierHolder(new EntityAttributeModifier(uuid, attributeName, value, operation), slot, attributeJson.seperateOnItem, baseTarget));
+                attributeModifiers.put(attribute, new EntityAttributeModifierHolder(new EntityAttributeModifier(uuid, attributeName, value, operation), slot, attributeJson.separateOnItem, baseTarget));
             }
         }
     }
@@ -589,7 +589,7 @@ public class AttributeProperty implements ModuleProperty {
     }
 
     public record EntityAttributeModifierHolder(EntityAttributeModifier attributeModifier, EquipmentSlot slot,
-                                                boolean seperateOnItem, EntityAttributeModifier.Operation mergeTo) {
+                                                boolean separateOnItem, EntityAttributeModifier.Operation mergeTo) {
     }
 
     public interface AttributeTransformer {
@@ -606,7 +606,7 @@ public class AttributeProperty implements ModuleProperty {
         public String operation;
         public String slot;
         public String uuid;
-        public boolean seperateOnItem;
+        public boolean separateOnItem;
         public String target_operation;
     }
 }
